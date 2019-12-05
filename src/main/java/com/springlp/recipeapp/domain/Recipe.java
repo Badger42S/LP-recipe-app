@@ -20,6 +20,8 @@ public class Recipe {
     private String directions;
     @Lob
     private Byte[] image;
+    @Enumerated(value = EnumType.STRING)
+    private Dificulty dificulty;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
