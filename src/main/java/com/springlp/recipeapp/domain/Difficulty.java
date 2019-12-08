@@ -1,5 +1,5 @@
 package com.springlp.recipeapp.domain;
 
-public enum Dificulty {
+public enum Difficulty {
     EASY,NORMAL,HARD
 }

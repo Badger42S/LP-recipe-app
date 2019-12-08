@@ -1,6 +1,7 @@
 package com.springlp.recipeapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,20 +15,21 @@ public class Recipe {
     private Integer cookTime;
     private Integer serving;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients=new HashSet<>();
     private String source;
     private String url;
+    @Lob
     private String directions;
     @Lob
     private Byte[] image;
     @Enumerated(value = EnumType.STRING)
-    private Dificulty dificulty;
+    private Difficulty difficulty;
     @ManyToMany
     @JoinTable(name = "recipe_category",
             joinColumns =@JoinColumn(name="recipe_id"),
             inverseJoinColumns = @JoinColumn(name="category_id")
     )
-    private Set<Category> category;
+    private Set<Category> category=new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
@@ -119,12 +121,12 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public Dificulty getDificulty() {
-        return dificulty;
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
-    public void setDificulty(Dificulty dificulty) {
-        this.dificulty = dificulty;
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 
     public Set<Category> getCategory() {

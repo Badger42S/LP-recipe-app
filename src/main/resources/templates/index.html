@@ -6,6 +6,15 @@
 </head>
 <body>
     <h1>New awesome project</h1>
-    <button type="submit" formmethod="get" value="pointless">Pointless button</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="recipe:${recipes}">
+            <td th:text="${recipe.id}">555</td>
+            <td th:text="${recipe.description}">Tasty Goodnees</td>
+        </tr>
+    </table>
 </body>
 </html>

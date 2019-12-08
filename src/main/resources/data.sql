@@ -1,6 +1,12 @@
-INSERT INTO category (description) VALUES ('Pianuchy');
-INSERT INTO category (description) VALUES ('Kolorato');
-INSERT INTO category (description) VALUES ('Totoro');
-INSERT INTO unit_of_measure (description) VALUES ('Kilo');
-INSERT INTO unit_of_measure (description) VALUES ('Feelings');
-INSERT INTO unit_of_measure (description) VALUES ('Fears');
+INSERT INTO category (description) VALUES ('American');
+INSERT INTO category (description) VALUES ('Italian');
+INSERT INTO category (description) VALUES ('Mexican');
+INSERT INTO category (description) VALUES ('Fast Food');
+INSERT INTO unit_of_measure (description) VALUES ('Teaspoon');
+INSERT INTO unit_of_measure (description) VALUES ('Tablespoon');
+INSERT INTO unit_of_measure (description) VALUES ('Cup');
+INSERT INTO unit_of_measure (description) VALUES ('Pinch');
+INSERT INTO unit_of_measure (description) VALUES ('Ounce');
+INSERT INTO unit_of_measure (description) VALUES ('Each');
+INSERT INTO unit_of_measure (description) VALUES ('Dash');
+INSERT INTO unit_of_measure (description) VALUES ('Pint');
