@@ -1,13 +1,11 @@
 package com.springlp.recipeapp.commands;
 
-import com.springlp.recipeapp.domain.UnitOfMeasure;
-
 import java.math.BigDecimal;
 
 public class IngredientCommand {
     private Long id;
     private String description;
-    private UnitOfMeasureCommand unitOfMeasureCommand;
+    private UnitOfMeasureCommand unitOfMeasure;
     private BigDecimal amount;
 
     public IngredientCommand() {
@@ -29,12 +27,12 @@ public class IngredientCommand {
         this.description = description;
     }
 
-    public UnitOfMeasureCommand getUnitOfMeasureCommand() {
-        return unitOfMeasureCommand;
+    public UnitOfMeasureCommand getUnitOfMeasure() {
+        return unitOfMeasure;
     }
 
-    public void setUnitOfMeasureCommand(UnitOfMeasureCommand unitOfMeasureCommand) {
-        this.unitOfMeasureCommand = unitOfMeasureCommand;
+    public void setUnitOfMeasure(UnitOfMeasureCommand unitOfMeasure) {
+        this.unitOfMeasure = unitOfMeasure;
     }
 
     public BigDecimal getAmount() {
