@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class IngredientCommand {
     private Long id;
+    private Long recipeId;
     private String description;
     private UnitOfMeasureCommand unitOfMeasure;
     private BigDecimal amount;
@@ -41,5 +42,13 @@ public class IngredientCommand {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public Long getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(Long recipeId) {
+        this.recipeId = recipeId;
     }
 }
