@@ -1,6 +1,8 @@
 package com.springlp.recipeapp.contrllers;
 
 import com.springlp.recipeapp.commands.IngredientCommand;
+import com.springlp.recipeapp.commands.RecipeCommand;
+import com.springlp.recipeapp.commands.UnitOfMeasureCommand;
 import com.springlp.recipeapp.services.IngredientService;
 import com.springlp.recipeapp.services.RecipeService;
 import com.springlp.recipeapp.services.UnitOfMeasureService;
@@ -42,6 +44,19 @@ public class IngredientController {
     public String updateRecipeIngredient (@PathVariable String recipeId, @PathVariable String id, Model model){
         model.addAttribute("ingredient",
                 ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(id)));
+        model.addAttribute("uomList", unitOfMeasureService.uomList());
+
+        return "recipe/ingredient/ingredientform";
+    }
+
+    @GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/new")
+    public String newIngredient (@PathVariable String recipeId, Model model){
+        RecipeCommand recipeCommand=recipeService.findCommandById(Long.valueOf(recipeId));
+        IngredientCommand ingredientCommand=new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        model.addAttribute("ingredient", ingredientCommand);
+        ingredientCommand.setUnitOfMeasure(new UnitOfMeasureCommand());
         model.addAttribute("uomList", unitOfMeasureService.uomList());
 
         return "recipe/ingredient/ingredientform";
