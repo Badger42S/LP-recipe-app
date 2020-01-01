@@ -1,10 +1,13 @@
 package com.springlp.recipeapp.contrllers;
 
 import com.springlp.recipeapp.commands.RecipeCommand;
+import com.springlp.recipeapp.exceptions.NotFoundException;
 import com.springlp.recipeapp.services.RecipeService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class RecipeController {
@@ -45,5 +48,25 @@ public class RecipeController {
     public String deleteById (@PathVariable String id){
         recipeService.deleteById(Long.valueOf(id));
         return "redirect:/";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ModelAndView handlerNotFound (Exception exception){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("notFound");
+        modelAndView.addObject("exception",exception);
+
+        return modelAndView;
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(NumberFormatException.class)
+    public ModelAndView handlerNumberFormat (Exception exception){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("400BadRequest");
+        modelAndView.addObject("exception",exception);
+
+        return modelAndView;
     }
 }
